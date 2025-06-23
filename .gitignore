@@ -1,0 +1,28 @@
+# Logs
+*.log
+# Temporary files
+*.tmp
+*~
+
+*.bak
+# Environment files (containing secrets, API keys, credentials)
+.env
+*.env
+.env.*
+
+# Local configuration that shouldn't be shared
+*.local
+
+### Express ###
+# express specific files
+
+node_modules/
+logs/
+*.log
+
+### Typescript ###
+# typescript specific files
+
+*.tsbuildinfo
+
+package-lock.json
