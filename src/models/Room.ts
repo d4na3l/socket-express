@@ -14,7 +14,7 @@ const RoomSchema = new Schema<IRoom>({
 }, { timestamps: true }
 );
 
-const Room = models.MessageScema as Model<IRoom>
-  || model<IRoom>('Room', RoomSchema);
+const Room = models?.MessageSchema as Model<IRoom>
+  || model('Room', RoomSchema);
 
 export default Room

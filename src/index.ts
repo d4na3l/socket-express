@@ -5,6 +5,9 @@ import dotenv from 'dotenv';
 import { connect } from './config/db';
 import { Websocket } from './lib/intances/websocket';
 
+// routes
+import authRoutes from './routes/authRoutes'
+
 dotenv.config();
 
 connect();
@@ -15,6 +18,8 @@ const front_url = process.env.NEXT_PUBLIC_FRONT_URL || 'http://localhost:3000'
 const app: Application = express();
 app.use(express.json());
 app.use(cors())
+
+app.use('/api/auth', authRoutes)
 
 const server = createServer(app);
 server.listen(PORT, () => {

@@ -1,21 +1,29 @@
 import { Types } from 'mongoose';
 
-export enum UserType {
+export enum userType {
   guest = 'guest',
-  autheticated = 'autheticated'
+  authenticated = 'authenticated'
 };
 
-export enum Status {
+export enum status {
   active = 'active',
   inactive = 'inactive'
 }
 
 export interface IUser {
   _id: Types.ObjectId,
-  type: UserType,
-  name?: string;
-  lastname?: string;
-  status: Status
-  connectionId?: string,
-  timestamps: Date;
+  user_type: userType,
+  username?: string,
+  password?: string,
+  status: status,
+  connectionId: string
+}
+
+export type userDTO = Omit<IUser, 'password' | 'id'>
+
+export type LoginUserDTO = Pick<IUser, 'username' | 'password'>
+
+export interface CreateUserDTO
+  extends Pick<IUser, 'username' | 'password'> {
+  'confirm_password': string
 }

@@ -1,5 +1,5 @@
 import { IMessage } from "../interfaces/message.model";
-import { model, Model, models, Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 const MessageSchema = new Schema<IMessage>({
   _id: {
@@ -26,7 +26,6 @@ const MessageSchema = new Schema<IMessage>({
 }, { timestamps: true }
 );
 
-const Message = models.MessageScema as Model<IMessage>
-  || model<IMessage>('Message', MessageSchema);
+const Message = models?.Message || model('Message', MessageSchema);
 
 export default Message
